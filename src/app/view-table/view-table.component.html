@@ -1,0 +1,36 @@
+<section>
+    <div class="head">
+        <div class="heading">
+            <h1>Contact Details</h1>
+        </div>
+        <div class="search">
+            <input type="text" [(ngModel)]="searchKey" placeholder="Search your contact here">
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Company Name</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of allData | filter :searchKey :'firstName' :'lastName'">
+                <td>{{data.firstName}} {{data.lastName}}</td>
+                <td><img [src]="data.image" alt=""></td>
+                <td>{{data.age}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.phone}}</td>
+                <td>{{data.address.address}}, {{data.address.state}}</td>
+                <td>{{data.company.name}}</td>
+                <td>{{data.company.title}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
